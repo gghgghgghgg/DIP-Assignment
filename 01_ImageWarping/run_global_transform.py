@@ -23,6 +23,7 @@ def apply_transform(image, scale, rotation, translation_x, translation_y, flip_h
     h, w = image.shape[:2]
     cx, cy = w / 2.0, h / 2.0
 
+<<<<<<< HEAD:01_ImageWarping/run_global_transform.py
     # Translate image center to origin
     T_to_origin = to_3x3(np.array([[1, 0, -cx],
                                     [0, 1, -cy]], dtype=np.float64))
@@ -32,11 +33,23 @@ def apply_transform(image, scale, rotation, translation_x, translation_y, flip_h
                           [0, scale, 0]], dtype=np.float64))
 
     # Rotation matrix (counter-clockwise)
+=======
+    # Translate 
+    T_to_origin = to_3x3(np.array([[1, 0, -cx],
+                                    [0, 1, -cy]], dtype=np.float64))
+
+    # Scale 
+    S = to_3x3(np.array([[scale, 0, 0],
+                          [0, scale, 0]], dtype=np.float64))
+
+    # Rotation 
+>>>>>>> 56d87ad (feat: update image warping assignment):Assignments/01_ImageWarping/run_global_transform.py
     angle_rad = np.deg2rad(rotation)
     cos_a, sin_a = np.cos(angle_rad), np.sin(angle_rad)
     R = to_3x3(np.array([[cos_a, -sin_a, 0],
                           [sin_a,  cos_a, 0]], dtype=np.float64))
 
+<<<<<<< HEAD:01_ImageWarping/run_global_transform.py
     # Translate back from origin to image center
     T_back = to_3x3(np.array([[1, 0, cx],
                                [0, 1, cy]], dtype=np.float64))
@@ -46,13 +59,27 @@ def apply_transform(image, scale, rotation, translation_x, translation_y, flip_h
                                     [0, 1, translation_y]], dtype=np.float64))
 
     # Horizontal flip around image center
+=======
+    # Translate back 
+    T_back = to_3x3(np.array([[1, 0, cx],
+                               [0, 1, cy]], dtype=np.float64))
+
+    #translation
+    T_translate = to_3x3(np.array([[1, 0, translation_x],
+                                    [0, 1, translation_y]], dtype=np.float64))
+
+    # Horizontal flip
+>>>>>>> 56d87ad (feat: update image warping assignment):Assignments/01_ImageWarping/run_global_transform.py
     if flip_horizontal:
         F = to_3x3(np.array([[-1, 0, w - 1],
                               [ 0, 1, 0]], dtype=np.float64))
     else:
         F = np.eye(3)
 
+<<<<<<< HEAD:01_ImageWarping/run_global_transform.py
     # Compose all transforms: scale & rotate around center → translate → flip
+=======
+>>>>>>> 56d87ad (feat: update image warping assignment):Assignments/01_ImageWarping/run_global_transform.py
     M = F @ T_translate @ T_back @ R @ S @ T_to_origin
 
     transformed_image = cv2.warpAffine(image, M[:2], (w, h),
