@@ -110,12 +110,12 @@ f(v) = (v - p^*) \cdot A + q^*
 
 > 单点变形示例
 
-<img src="img4.png" alt="MLS Single Point" width="800">
+<img src="pics/img4.png" alt="MLS Single Point" width="800">
 
 > 多点变形示例
 
-<img src="image_b.png" alt="MLS Multi Points" width="800">
-<img src="image_f.png" alt="MLS Multi Points" width="800">
+<img src="pics/image_b.png" alt="MLS Multi Points B" width="800">
+<img src="pics/image_f.webp" alt="MLS Multi Points F" width="800">
 
 ---
 
