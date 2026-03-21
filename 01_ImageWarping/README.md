@@ -12,7 +12,7 @@ Implement MLS or RBF based image deformation in the [Missing Part](run_point_tra
 
 ## Implementation of Image Geometric Transformation
 
-This repository is [Your Name]'s implementation of Assignment 01 of DIP.
+This repository is Shen Haowei's implementation of Assignment 01 of DIP.
 
 ---
 
@@ -50,12 +50,14 @@ python run_point_transform.py
 
 **复合变换顺序：**
 
-$$M = F \cdot T_{\text{translate}} \cdot T_{\text{back}} \cdot R \cdot S \cdot T_{\text{to\_origin}}$$
+```math
+M = F \cdot T_{\mathrm{translate}} \cdot T_{\mathrm{back}} \cdot R \cdot S \cdot T_{\mathrm{to\,origin}}
+```
 
 | 变换 | 矩阵 |
 |------|------|
 | 缩放 $s$ | $\text{diag}(s, s, 1)$ |
-| 旋转 $\theta$ | $[\cos\theta, -\sin\theta; \sin\theta, \cos\theta]$ |
+| 旋转 $\theta$ | $\begin{bmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{bmatrix}$ |
 | 平移 $(t_x, t_y)$ | 偏移矩阵 |
 | 水平翻转 | $\text{diag}(-1, 1, 1)$ + 偏移 |
 
@@ -64,16 +66,24 @@ $$M = F \cdot T_{\text{translate}} \cdot T_{\text{back}} \cdot R \cdot S \cdot T
 基于 Moving Least Squares (MLS) Affine 模式实现点引导图像变形。对输出图像每个像素 $v$，利用控制点对 $\{(p_i, q_i)\}$ 求最优局部仿射变换：
 
 **权重：**
-$$w_i(v) = \frac{1}{\|v - p_i\|^{2\alpha}}$$
+```math
+w_i(v) = \frac{1}{\|v - p_i\|^{2\alpha}}
+```
 
 **加权重心：**
-$$p^* = \frac{\sum_i w_i p_i}{\sum_i w_i}, \quad q^* = \frac{\sum_i w_i q_i}{\sum_i w_i}$$
+```math
+p^* = \frac{\sum_i w_i p_i}{\sum_i w_i}, \quad q^* = \frac{\sum_i w_i q_i}{\sum_i w_i}
+```
 
 **最优仿射矩阵：**
-$$A = \left(\sum_i w_i \hat{p}_i^T \hat{p}_i\right)^{-1} \left(\sum_i w_i \hat{p}_i^T \hat{q}_i\right)$$
+```math
+A = \left(\sum_i w_i \hat{p}_i^T \hat{p}_i\right)^{-1} \left(\sum_i w_i \hat{p}_i^T \hat{q}_i\right)
+```
 
 **映射：**
-$$f(v) = (v - p^*) \cdot A + q^*$$
+```math
+f(v) = (v - p^*) \cdot A + q^*
+```
 
 ---
 
@@ -84,23 +94,15 @@ $$f(v) = (v - p^*) \cdot A + q^*$$
 > 缩放示例（Scale）
 
 <!-- 在此处替换为实际截图路径 -->
-<img src="pics/result_scale.png" alt="Scale Result" width="800">
+<img src="pics/img1.png" alt="Scale Result" width="800">
 
 > 旋转示例（Rotation）
 
-<img src="pics/result_rotation.png" alt="Rotation Result" width="800">
-
-> 平移示例（Translation）
-
-<img src="pics/result_translation.png" alt="Translation Result" width="800">
-
-> 水平翻转示例（Flip）
-
-<img src="pics/result_flip.png" alt="Flip Result" width="800">
+<img src="pics/img2.png" alt="Rotation Result" width="800">
 
 > 综合变换 Demo（Gif）
 
-<img src="pics/global_demo.gif" alt="Global Transform Demo" width="800">
+<img src="pics/img3.png" alt="Global Transform Demo" width="800">
 
 ---
 
@@ -108,15 +110,12 @@ $$f(v) = (v - p^*) \cdot A + q^*$$
 
 > 单点变形示例
 
-<img src="pics/result_mls_single.png" alt="MLS Single Point" width="800">
+<img src="img4.png" alt="MLS Single Point" width="800">
 
 > 多点变形示例
 
-<img src="pics/result_mls_multi.png" alt="MLS Multi Points" width="800">
-
-> 点引导变形 Demo（Gif）
-
-<img src="pics/point_demo.gif" alt="Point Guided Demo" width="800">
+<img src="image_b.png" alt="MLS Multi Points" width="800">
+<img src="image_f.png" alt="MLS Multi Points" width="800">
 
 ---
 
