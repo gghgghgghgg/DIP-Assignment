@@ -1,14 +1,5 @@
 # Assignment 1 - Image Warping
 
-### In this assignment, you will implement basic transformation and point-based deformation for images.
-
-### Resources:
-- [Teaching Slides](https://pan.ustc.edu.cn/share/index/66294554e01948acaf78) 
-- [Paper: Image Deformation Using Moving Least Squares](https://people.engr.tamu.edu/schaefer/research/mls.pdf)
-- [Paper: Image Warping by Radial Basis Functions](https://www.sci.utah.edu/~gerig/CS6640-F2010/Project3/Arad-1995.pdf)
-- [OpenCV Geometric Transformations](https://docs.opencv.org/4.x/da/d6e/tutorial_py_geometric_transformations.html)
-- [Gradio: 一个好用的网页端交互GUI](https://www.gradio.app/)
-
 ### 1. Basic Image Geometric Transformation (Scale/Rotation/Translation).
 Fill the [Missing Part](run_global_transform.py#L21) of 'run_global_transform.py'.
 
