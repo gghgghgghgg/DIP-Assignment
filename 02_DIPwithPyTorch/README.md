@@ -39,6 +39,13 @@ cd Pix2Pix
 python train.py
 ```
 
+To test the Pix2Pix (U-Net) model:
+
+```bash
+cd Pix2Pix
+python test.py
+```
+
 ---
 
 ## Method Description
@@ -69,8 +76,9 @@ python train.py
 > Gradio 界面融合示例
 
 <!-- 在此处替换为实际泊松融合结果截图路径 -->
-<img src="pics/poisson_result.png" alt="Poisson Blending Result" width="800">
+<img src="02_DIPwithPyTorch\data_poisson\result\possion_1.webp" alt="Poisson Blending Result" width="800">
 
+<img src="02_DIPwithPyTorch\data_poisson\result\possion_2.webp" alt="Poisson Blending Result" width="800">
 ---
 
 ### Pix2Pix (U-Net)
@@ -78,10 +86,16 @@ python train.py
 > 混合数据集生成效果
 > (从左到右依次为: Input, Ground Truth, Model Output)
 
+#### Validation Results (训练过程监控)
+展示模型在训练各阶段的验证集表现，用以观察收敛情况：
 <!-- 在此处替换为实际的 val_results 截图路径 -->
-<img src="Pix2Pix/val_results/epoch_50/result_1.png" alt="Pix2Pix Result 1" width="800">
+<img src="Pix2Pix/val_results/epoch_240/result_1.png" alt="Pix2Pix Val Result" width="800">
 
-<img src="Pix2Pix/val_results/epoch_50/result_2.png" alt="Pix2Pix Result 2" width="800">
+#### Test Results (最终模型测试)
+展示加载最佳 Epoch 权重并运行 `test.py` 后，模型在未见过的测试集（Test Set）上的最终生成表现：
+<!-- 在此处替换为实际的 test_results 截图路径 -->
+<img src="Pix2Pix/test_results/result_0001.png" alt="Pix2Pix Test Result 1" width="800">
+<img src="Pix2Pix/test_results/result_0002.png" alt="Pix2Pix Test Result 2" width="800">
 
 ---
 
