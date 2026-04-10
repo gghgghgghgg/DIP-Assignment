@@ -76,9 +76,9 @@ python test.py
 > Gradio 界面融合示例
 
 <!-- 在此处替换为实际泊松融合结果截图路径 -->
-<img src="02_DIPwithPyTorch\data_poisson\result\possion_1.webp" alt="Poisson Blending Result" width="800">
+<img src="data_poisson/result/possion_1.webp" alt="Poisson Blending Result" width="800">
 
-<img src="02_DIPwithPyTorch\data_poisson\result\possion_2.webp" alt="Poisson Blending Result" width="800">
+<img src="data_poisson/result/possion_2.webp" alt="Poisson Blending Result" width="800">
 ---
 
 ### Pix2Pix (U-Net)
