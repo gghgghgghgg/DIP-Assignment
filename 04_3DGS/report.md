@@ -165,14 +165,6 @@ Task 1 中，COLMAP 成功恢复了 `chair` 场景的相机位姿和稀疏三维
 
 这些结果说明该简化版 3DGS 已经能够生成连续的多视角外观，并在视角变化过程中保持基本稳定的结构轮廓。
 
-如果 Markdown 查看器支持 HTML，也可以直接嵌入完整视频：
-
-```html
-<video src="render_mv.mp4" controls width="800"></video>
-```
-
-由于课程实现当前主要保留的是环绕渲染视频，因此这里使用视频关键帧作为课程方法的定性结果展示。
-
 ### 3. Comparison with Official 3DGS
 
 本实验将课程实现与官方 3DGS 在同一 `chair` 场景上进行了对比。当前已经统计到训练时间与显存占用结果。
